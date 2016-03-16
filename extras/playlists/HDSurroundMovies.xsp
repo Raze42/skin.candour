@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>Random Movies</name>
+    <match>all</match>
+    <group>none</group>
+   	<rule field="genre" operator="isnot">
+        <value>children</value>
+    </rule>
+	<rule field="videoresolution" operator="greaterthan">
+		<value>719</value>
+	</rule>
+	<rule field="audiochannels" operator="greaterthan">
+		<value>2</value>
+	</rule>
+	<order direction="ascending">sorttitle</order>
+</smartplaylist>

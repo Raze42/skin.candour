@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="skin.candour"
+  version="0.35"
+  name="Candour"
+  provider-name="Raze">
+  <!--Feb 28, 2016-->
+	<requires>
+		<import addon="xbmc.gui" version="5.10.0"/>
+		<import addon="script.grab.fanart" version="0.12.8"/>
+		<import addon="script.skinshortcuts" version="0.4.5"/>
+		<import addon="service.library.data.provider" version="0.0.7"/>
+	</requires>
+	<extension
+	  point="xbmc.gui.skin"
+	  debugging="false"
+	  effectslowdown="0.75">
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
+		<res width="2560" height="1080" aspect="21:9" default="false" folder="21x9" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="de">Candour V 0.35</summary>
+		<summary lang="el">Candour V 0.35</summary>
+		<summary lang="en">Candour V 0.35</summary>
+		<summary lang="en_AU">Candour V 0.35</summary>
+		<summary lang="en_NZ">Candour V 0.35</summary>
+		<summary lang="en_US">Candour V 0.35</summary>
+		<summary lang="es">Candour V 0.35</summary>
+		<summary lang="fi">Candour V 0.35</summary>
+		<summary lang="fr">Candour V 0.35</summary>
+		<summary lang="fr_CA">Aeon Nox 5 : Redux</summary>
+		<summary lang="gl">Candour V 0.35</summary>
+		<summary lang="he">Candour V 0.35</summary>
+		<summary lang="hu">Candour V 0.35</summary>
+		<summary lang="is">Candour V 0.35</summary>
+		<summary lang="it">Candour V 0.35</summary>
+		<summary lang="ko">Candour V 0.35</summary>
+		<summary lang="lt">Candour V 0.35</summary>
+		<summary lang="ms">Candour V 0.35</summary>
+		<summary lang="nl">Candour V 0.35</summary>
+		<summary lang="no">Candour V 0.35</summary>
+		<summary lang="pl">Candour V 0.35</summary>
+		<summary lang="pt">Candour V 0.35</summary>
+		<summary lang="pt_BR">Candour V 0.35</summary>
+		<summary lang="ro">Candour V 0.35</summary>
+		<summary lang="ru">Candour V 0.35</summary>
+		<summary lang="sk">Candour V 0.35</summary>
+		<summary lang="sv">Candour V 0.35</summary>
+		<summary lang="th">Candour V 0.35</summary>
+		<summary lang="vi">Candour V 0.35 - Sự trở về</summary>
+		<summary lang="zh">Candour V 0.35</summary>
+		<description lang="de">Candour: All your media upfront. Honest.</description>
+		<description lang="el">Candour: All your media upfront. Honest.</description>
+		<description lang="en">Candour: All your media upfront. Honest.</description>
+		<description lang="en_AU">Candour: All your media upfront. Honest.</description>
+		<description lang="en_NZ">Candour: All your media upfront. Honest.</description>
+		<description lang="en_US">Candour: All your media upfront. Honest.</description>
+		<description lang="es">Candour: All your media upfront. Honest.</description>
+		<description lang="fi">Candour: All your media upfront. Honest.</description>
+		<description lang="fr">Candour: All your media upfront. Honest.</description>
+		<description lang="fr_CA">Candour: All your media upfront. Honest.</description>
+		<description lang="he">Candour: All your media upfront. Honest.</description>
+		<description lang="hr">Candour: All your media upfront. Honest.</description>
+		<description lang="hu">Candour: All your media upfront. Honest.</description>
+		<description lang="is">Candour: All your media upfront. Honest.</description>
+		<description lang="it">Candour: All your media upfront. Honest.</description>
+		<description lang="ko">Candour: All your media upfront. Honest.</description>
+		<description lang="lt">Candour: All your media upfront. Honest.</description>
+		<description lang="ms">Candour: All your media upfront. Honest.</description>
+		<description lang="nl">Candour: All your media upfront. Honest.</description>
+		<description lang="no">Candour: All your media upfront. Honest.</description>
+		<description lang="pl">Candour: All your media upfront. Honest.</description>
+		<description lang="pt">Candour: All your media upfront. Honest.</description>
+		<description lang="pt_BR">Candour: All your media upfront. Honest.</description>
+		<description lang="ru">Candour: All your media upfront. Honest.</description>
+		<description lang="sk">Candour: All your media upfront. Honest.</description>
+		<description lang="sv">Candour: All your media upfront. Honest.</description>
+		<description lang="th">Candour: All your media upfront. Honest.</description>
+		<description lang="vi">Candour: All your media upfront. Honest.</description>
+		<platform>all</platform>
+	</extension>
+</addon>
