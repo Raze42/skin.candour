@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+<!-- Main Menu -->
+	
+	<include name="HomeLabel">
+		<textcolor>white</textcolor>
+		<shadowcolor>ff000000</shadowcolor>
+		<focusedcolor>selected</focusedcolor>
+		<texturefocus border="0"></texturefocus>
+		<texturenofocus border="0"></texturenofocus>
+		<fadetime>200</fadetime>
+	</include>
+	
+	<include name="MainItemLayout">
+		<itemlayout width="200" height="300">
+			<control type="image">
+				<aspectratio>scale</aspectratio>
+				<texture diffuse="thumbs/thumb_mask.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+				<bordersize>8</bordersize>
+			</control>
+			<include>VideoRezImage</include>
+		</itemlayout>
+	</include>
+	
+	<include name="VideoRezImage">
+		<control type="image" description="Video rez Image">
+			<posx>137</posx>
+			<posy>250</posy>
+			<width>50</width>
+			<height>38</height>
+			<aspectratio>keep</aspectratio>
+			<texture>$INFO[ListItem.VideoResolution,flags/resolution/dark/,.png]</texture>
+		</control>
+	</include>
+
+<!-- Submenu Animations - Only FADE being used at the moment -->	
+
+	<include name="subslide1">
+		<animation effect="slide" start="1200,0" time="400">visible</animation>
+	</include>
+	
+	<include name="subslide2">
+		<animation effect="slide" start="1200,0" time="400" delay="100">visible</animation>
+	</include>
+	
+	<include name="subslide3">
+		<animation effect="slide" start="1200,0" time="400" delay="200">visible</animation>
+	</include>
+	
+	<include name="subfade1">
+		<animation effect="fade" time="800" delay="100">visible</animation>
+		<animation effect="fade" time="0">hidden</animation>
+	</include>
+	
+	<include name="subfade2">
+		<animation effect="fade" time="800" delay="225">visible</animation>
+		<animation effect="fade" time="0">hidden</animation>
+	</include>
+	
+	<include name="subfade3">
+		<animation effect="fade" time="800" delay="350">visible</animation>
+		<animation effect="fade" time="0">hidden</animation>
+	</include>
+	
+<!-- Home Specific Includes -->
+
+	<include name="HomeLeftMenu">
+		<control type="grouplist" id="3110" description="homeleftmenu">
+			<animation effect="rotatey" start="45" end="0" center="360,288" time="200">focus</animation>
+			<animation effect="rotatey" start="0" end="45" center="360,288" time="200">hidden</animation>
+			<posx>0</posx>
+			<posy>90</posy>
+			<width>300</width>
+			<height>475</height>
+			<visible allowhiddenfocus="true">ControlGroup(3110).HasFocus()</visible>
+			<fadetime>200</fadetime>
+			<control type="button" id="3111" description="Global Search">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+				<label>Global Search</label>
+            	<onclick>RunScript(script.globalsearch)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3112" description="PlayerControls">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+				<label>Player Controls</label>
+            	<onclick>ActivateWindow(playercontrols)</onclick>
+				<onright>3000</onright>
+			</control>
+		</control>
+	</include>
+	
+<!-- Movie Specific Includes -->
+	
+	<include name="MovieVis">
+		<visible>Control.HasFocus(3200) | ControlGroup(3210).HasFocus()| Control.HasFocus(3210) | Control.HasFocus(3221) | Control.HasFocus(3222) | Control.HasFocus(3223) | Control.HasFocus(3231) | Control.HasFocus(3232) | Control.HasFocus(3233)</visible>
+	</include>
+	
+	<include name="MovieLeftMenu">
+		<control type="grouplist" id="3210" description="moviesleftmenu">
+			<animation effect="rotatey" start="45" end="0" center="360,288" time="200">focus</animation>
+			<animation effect="rotatey" start="0" end="45" center="360,288" time="200">hidden</animation>
+			<posx>0</posx>
+			<posy>175</posy>
+			<width>300</width>
+			<height>475</height>
+			<visible allowhiddenfocus="true">ControlGroup(3210).HasFocus()</visible>
+			<fadetime>200</fadetime>
+			<control type="button" id="3211" description="Genre">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+            	<align>right</align>
+				<label>Genre</label>
+            	<onclick>ActivateWindow(Videos,MovieGenres,return)</onclick>
+				<onright>3000</onright>
+			</control>	
+			<control type="button" id="3212" description="Release Date">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>Release Date</label>
+            	<onclick>ActivateWindow(Videos,MovieYears,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3213" description="HD Movies">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>HD Movies</label>
+				<onclick>ActivateWindow(Videos,special://skin/extras/playlists/HDMovies.xsp,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3214" description="HD + Surround Movies">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>HD + Surround</label>
+				<onclick>ActivateWindow(Videos,special://skin/extras/playlists/HDSurroundMovies.xsp,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3215" description="Browse All">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>Browse Videos</label>
+            	<onclick>ActivateWindow(Videos,,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3216" description="Video Addons">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+				<label>Video Addons</label>
+            	<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+				<onright>3000</onright>
+			</control>
+		</control>
+	</include>
+
+<!--  TV Specific Includes -->
+	
+	<include name="TVVis">
+		<visible>Control.HasFocus(3300) | ControlGroup(3310).HasFocus()| Control.HasFocus(3310) | Control.HasFocus(3321) | Control.HasFocus(3322) | Control.HasFocus(3323) | Control.HasFocus(3331) | Control.HasFocus(3332) | Control.HasFocus(3333)</visible>
+	</include>
+	
+	<include name="TVLeftMenu">
+		<control type="grouplist" id="3310" description="TVleftmenu">
+			<animation effect="rotatey" start="45" end="0" center="360,288" time="200">focus</animation>
+			<animation effect="rotatey" start="0" end="45" center="360,288" time="200">hidden</animation>
+			<posx>0</posx>
+			<posy>260</posy>
+			<width>300</width>
+			<height>475</height>
+			<visible allowhiddenfocus="true">ControlGroup(3310).HasFocus()</visible>
+			<fadetime>200</fadetime>
+			<control type="button" id="3311" description="Genre">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+            	<align>right</align>
+				<label>Genre</label>
+            	<onclick>ActivateWindow(Videos,TvShowGenres,return)</onclick>
+				<onright>3000</onright>
+			</control>	
+			<control type="button" id="3312" description="Release Date">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>Release Date</label>
+            	<onclick>ActivateWindow(Videos,TvShowYears,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3313" description="Browse All">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>Browse Videos</label>
+            	<onclick>ActivateWindow(Videos,,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3314" description="Video Addons">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+				<label>Video Addons</label>
+            	<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+				<onright>3000</onright>
+			</control>
+		</control>
+	</include>
+
+<!--  KidsTV Specific Includes -->
+	
+	<include name="KidsTVVis">
+		<visible>Control.HasFocus(3400) | ControlGroup(3410).HasFocus()| Control.HasFocus(3410) | Control.HasFocus(3421) | Control.HasFocus(3422) | Control.HasFocus(3423) | Control.HasFocus(3431) | Control.HasFocus(3432) | Control.HasFocus(3433)</visible>
+	</include>
+	
+	<include name="KidsTVLeftMenu">
+		<control type="grouplist" id="3410" description="KidzTVleftmenu">
+			<animation effect="rotatey" start="45" end="0" center="360,288" time="200">focus</animation>
+			<animation effect="rotatey" start="0" end="45" center="360,288" time="200">hidden</animation>
+			<posx>0</posx>
+			<posy>345</posy>
+			<width>300</width>
+			<height>475</height>
+			<visible allowhiddenfocus="true">ControlGroup(3410).HasFocus()</visible>
+			<fadetime>200</fadetime>
+			<control type="button" id="3411" description="Disney Shows">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+            	<align>right</align>
+				<label>Disney Shows</label>
+				<onclick>ActivateWindow(Videos,special://skin/extras/playlists/KidsDisneyTVShows.xsp,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3412" description="KidsTVMode">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+				<label>Kids TV Mode</label>
+            	<onclick>PlayMedia(special://skin/extras/playlists/KidsRandomTVEpisodes.xsp)</onclick>				
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3413" description="Release Date">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>Release Date</label>
+            	<onclick>ActivateWindow(Videos,TvShowYears,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3414" description="Browse All">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>Browse Videos</label>
+            	<onclick>ActivateWindow(Videos,,return)</onclick>
+				<onright>3000</onright>
+			</control>
+		</control>
+	</include>
+
+<!--  Kids Movie Specific Includes -->
+	
+	<include name="KidsMovieVis">
+		<visible>Control.HasFocus(3500) | ControlGroup(3510).HasFocus()| Control.HasFocus(3510) | Control.HasFocus(3521) | Control.HasFocus(3522) | Control.HasFocus(3523) | Control.HasFocus(3531) | Control.HasFocus(3532) | Control.HasFocus(3533)</visible>
+	</include>
+	
+	<include name="KidsMovieLeftMenu">
+		<control type="grouplist" id="3510" description="KidzTVleftmenu">
+			<animation effect="rotatey" start="45" end="0" center="360,288" time="200">focus</animation>
+			<animation effect="rotatey" start="0" end="45" center="360,288" time="200">hidden</animation>
+			<posx>0</posx>
+			<posy>430</posy>
+			<width>300</width>
+			<height>475</height>
+			<visible allowhiddenfocus="true">ControlGroup(3510).HasFocus()</visible>
+			<fadetime>200</fadetime>
+			<control type="button" id="3511" description="Disney Movies">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+            	<align>right</align>
+				<label>Disney Movies</label>
+				<onclick>ActivateWindow(Videos,special://skin/extras/playlists/KidsDisneyMovies.xsp,return)</onclick>
+				<onright>3000</onright>
+			</control>	
+			<control type="button" id="3512" description="Christmas">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>Christmas</label>
+				<onclick>ActivateWindow(Videos,special://skin/extras/playlists/ChristmasMovies.xsp,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3513" description="Release Date">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>Release Date</label>
+            	<onclick>ActivateWindow(Videos,TvShowYears,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3514" description="Browse All">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>Browse Videos</label>
+            	<onclick>ActivateWindow(Videos,,return)</onclick>
+				<onright>3000</onright>
+			</control>
+		</control>
+	</include>
+	
+	
+<!-- Picture Specific Includes -->
+
+	<include name="PictureLeftMenu">
+		
+		<control type="list" id="3809" description="PictureLeftDummyDynamic">
+			<visible>false</visible>
+			<itemlayout />
+			<focusedlayout />
+			<content content="video" limit="10">special://skin/extras/playlists/KidsMovies.xsp</content> 
+		</control>
+	
+		<control type="grouplist" id="3810" description="TVleftmenuSTATIC">
+			<animation effect="rotatey" start="45" end="0" center="360,288" time="200">focus</animation> 
+			<animation effect="rotatey" start="0" end="45" center="360,288" time="200">hidden</animation> 
+			<posx>0</posx> 
+			<posy>260</posy> 
+			<width>300</width> 
+			<height>475</height> 
+			<visible allowhiddenfocus="true">true</visible> 
+			<fadetime>200</fadetime> 
+			<control type="button" id="3811" description="Item1">
+				<width>185</width> 
+				<include>HomeLabel</include> 
+				<font>font12</font> 
+				<align>right</align>
+					<label>$INFO[Container(3232).ListItemPosition(0).DBID]</label>
+					<!--<onclick>RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[Container(3232).ListItemPosition(0).DBID])</onclick>-->
+					<onclick>activatewindow(movieinformation)</onclick>
+					<!--$INFO[Container(3809).ListItemPosition(0).DBID]-->
+					<!--RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],id=$INFO[ListItem.Property(id)])-->
+				<onright>3000</onright>
+				<onleft>Info</onleft>
+			</control>
+			<control type="button" id="3812" description="Item2">
+				<width>185</width> 
+				<include>HomeLabel</include> 
+				<font>font12</font> 
+				<align>right</align> 
+				<label>$INFO[Container(3232).ListItemPosition(1).DBID]</label>
+				<onclick>RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[Container(3232).ListItemPosition(1).DBID])</onclick>
+				<onright>3000</onright>
+				<onleft>info</onleft>
+			</control>
+		</control>
+  </include>
+  
+<!-- Settings Specific Includes -->
+
+	<include name="SettingsLeftMenu">
+		<control type="grouplist" id="3910" description="settingsleftmenu">
+			<animation effect="rotatey" start="45" end="0" center="360,288" time="200">focus</animation>
+			<animation effect="rotatey" start="0" end="45" center="360,288" time="200">hidden</animation>
+			<posx>0</posx>
+			<posy>770</posy>
+			<width>300</width>
+			<height>475</height>
+			<visible allowhiddenfocus="true">ControlGroup(3910).HasFocus()</visible>
+			<fadetime>200</fadetime>
+			<control type="button" id="3911" description="Addons">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+            	<align>right</align>
+				<label>Addons</label>
+            	<onclick>ActivateWindow(AddonBrowser)</onclick>
+				<!--<onclick>RunScript(script.favourites,property=CustomFavourite1)</onclick>-->
+				<!--ActivateWindow(programs,plugin://script.extendedinfo?info=favourites,return)</onclick>-->
+				<onright>3000</onright>
+			</control>	
+			<control type="button" id="3912" description="ReloadSkin">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>Reload Skin</label>
+            	<onclick>XBMC.ReloadSkin()</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3913" description="FileManager">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+            	<label>File Manager</label>
+            	<onclick>ActivateWindow(filemanager,return)</onclick>
+				<onright>3000</onright>
+			</control>
+			<control type="button" id="3914" description="Shutdown">
+				<width>185</width>
+            	<include>HomeLabel</include>
+				<font>font12</font>
+				<align>right</align>
+				<label>Shutdown</label>
+            	<onclick>ActivateWindow(shutdownmenu,return)</onclick>
+				<onright>3000</onright>
+			</control>
+		</control>
+	</include>
+	
+</includes>
